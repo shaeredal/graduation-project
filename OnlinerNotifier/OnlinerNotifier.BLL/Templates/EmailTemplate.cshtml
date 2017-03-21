@@ -1,0 +1,21 @@
+﻿<body>
+    <table border="1">
+        @foreach (var product in Model)
+            {
+            <tr>
+                <td>
+                    <span>@product.Product.Name</span>
+                </td>
+                <td>
+                    @foreach (var change in product.Changes)
+                    {
+                        <p>Old prices:</p>
+                        <p>@change.OldMinPrice - @change.OldMaxPrice</p>
+                        <p>New prices:</p>
+                        <p>@change.NewMinPrice - @change.NewMaxPrice</p>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</body>

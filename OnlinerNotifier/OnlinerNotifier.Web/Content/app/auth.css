@@ -1,0 +1,25 @@
+﻿#signin {
+    margin-top: 20px;
+}
+
+.twitter-button:hover, .twitter-button:active {
+    background: #00aced;
+    color: white;
+}
+
+.fb-button:hover, .fb-button:active {
+    background: #3b5998;
+    color: white;
+}
+
+.vk-button:hover, .vk-button:active {
+    background: #45668e;
+    color: white;
+}
+
+.social-button{
+    background: #999999;
+    transition: background 0.2s;
+    transition: color 0.2s;
+    color: #444444;
+}

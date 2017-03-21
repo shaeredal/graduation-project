@@ -1,0 +1,20 @@
+﻿<nav class="navbar navbar-dark bg-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" ng-href="/home">OnlinerNotifier</a>
+        </div>
+        <ul class="nav navbar-nav pull-right">
+            <li class="nav-item">
+                <a class="nav-link" ng-href="/account">
+                    <img ng-src={{avatarUri}}>
+                    <b>{{name}}</b>
+                </a>
+            </li>
+            <li class="nav-item">
+                        <select id="currency" class="form-control" ng-model="$parent.currentRate">
+                            <option ng-repeat="x in currencies" value="{{x.rate}}">{{x.name}}</option>
+                        </select>
+            </li>
+        </ul>
+    </div>
+</nav>

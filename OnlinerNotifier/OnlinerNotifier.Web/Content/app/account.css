@@ -1,0 +1,16 @@
+﻿.track-icon {
+    color: goldenrod;
+}
+
+.not-track-icon {
+    color: saddlebrown;
+}
+
+.notification-setting-panel {
+    padding: 16px;
+}
+
+.notification-status {
+    font-size: 24px;
+    color: lightgray;
+}

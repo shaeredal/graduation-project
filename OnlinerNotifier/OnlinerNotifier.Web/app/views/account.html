@@ -1,0 +1,76 @@
+﻿<div ng-include="'app/views/navbar.html'"></div>
+
+<div class="container body-content">
+    <div class="row container indent">
+        <div class="card notification-setting-panel">
+            <div class="row">
+                <form class="form col-md-6" name="NotificationForm">
+                    <div class="form-group">
+                        <label for="time">Time:</label>
+                        <uib-timepicker id="time" class="form-control" ng-model="time" arrowkeys="false" show-spinners="false" show-meridian="false" required></uib-timepicker>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input id="email" class="form-control" type="email" ng-model="email" required>
+                    </div>
+
+                </form>
+                <div class="col-md-6 text-lg-center notification-status">
+                    <span>{{enableNotifications | notificationFilter}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <button type="submit" class="btn btn-primary form-control" ng-click="setData()">Set Notification Data</button>
+                </div>
+                <div class="form-group col-md-6">
+                    <button type="submit" class="btn btn-info form-control" ng-click="disableNotifications()">Disable Notifications</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>
+                        <th>Tracking products
+                        <th class="price">Lowest price
+                        <th class="price">Highest price
+                    </tr>
+                </thead>
+                <tbody infinite-scroll="more()">
+                    <tr class="indent" ng-repeat="n in userProducts track by $index">
+                        <td>
+                            <div class="product-image">
+                                <span class="placer"></span>
+                                <img ng-src={{n.Product.Image}} ng-show="n.Product.Image">
+                            </div>
+                        </td>
+                        <td>
+                            <a ng-href={{n.Product.Url}}>{{n.Product.Name}}</a>
+                        </td>
+                        <td>
+                            <span>{{n.Product.MinPrice | currencyFilter:currentRate}}</span>
+                        </td>
+                        <td>
+                            <span>{{n.Product.MaxPrice | currencyFilter:currentRate}}</span>
+                        </td>
+                        <td class="icon-box">
+                            <a ng-click="changeTrackingStatus(n.Id, $index)" ng-switch="n.IsTracked">
+                                <span class="track-icon" ng-switch-when="true"><i class="fa fa-eye" aria-hidden="true"></i></span>
+                                <span class="not-track-icon" ng-switch-when="false"><i class="fa fa-eye-slash" aria-hidden="true"></i></span>
+                            </a>
+                        </td>
+                        <td class="icon-box">
+                            <a class="remove-cross" ng-click="delProduct(n.Product.Id, $index)"><i class="fa fa-times" aria-hidden="true"></i></a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

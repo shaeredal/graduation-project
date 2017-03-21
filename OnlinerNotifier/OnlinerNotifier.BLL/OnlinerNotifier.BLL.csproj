@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F6E04DDD-93BA-40D1-9117-D1212BB7436A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OnlinerNotifier.BLL</RootNamespace>
+    <AssemblyName>OnlinerNotifier.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OAuth2, Version=0.8.37.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OAuth2.0.8.37\lib\OAuth2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.8.2.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.8.2\lib\net45\RazorEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.1.603\lib\net45\StackExchange.Redis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Mappers\Implementations\EmailMapper.cs" />
+    <Compile Include="Mappers\Interfaces\IUserMapper.cs" />
+    <Compile Include="Mappers\Interfaces\IUserProductsMapper.cs" />
+    <Compile Include="Mappers\Interfaces\IProductMapper.cs" />
+    <Compile Include="Mappers\Interfaces\IPriceChangesMapper.cs" />
+    <Compile Include="Mappers\Interfaces\INotificationDataModelMapper.cs" />
+    <Compile Include="Mappers\Implementations\NotificationDataModelMapper.cs" />
+    <Compile Include="Mappers\Interfaces\INotificationProductChangesModelMapper.cs" />
+    <Compile Include="Mappers\Implementations\NotificationProductChangesModelMapper.cs" />
+    <Compile Include="Mappers\Implementations\PriceChangesMapper.cs" />
+    <Compile Include="Mappers\Implementations\ProductMapper.cs" />
+    <Compile Include="Mappers\Implementations\UserMapper.cs" />
+    <Compile Include="Mappers\Implementations\UserProductsMapper.cs" />
+    <Compile Include="Mappers\Interfaces\IEmailMapper.cs" />
+    <Compile Include="Models\NotificationModels\NotificationDataModel.cs" />
+    <Compile Include="Models\NotificationModels\NotificationEmailModel.cs" />
+    <Compile Include="Models\NotificationModels\NotificationParametersModel.cs" />
+    <Compile Include="Models\NotificationModels\NotificationProductChangesModel.cs" />
+    <Compile Include="Models\OnlinerDataModels\PriceOnliner.cs" />
+    <Compile Include="Models\OnlinerDataModels\ProductOnliner.cs" />
+    <Compile Include="Models\OnlinerDataModels\SearchResultOnliner.cs" />
+    <Compile Include="Models\TrackingModels\TrackingModel.cs" />
+    <Compile Include="Models\UserProductViewModel.cs" />
+    <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\UserDataViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Redis\RedisConnector.cs" />
+    <Compile Include="Services\Implementations\NotificationDataSevices\NotifiableUsersService.cs" />
+    <Compile Include="Services\Implementations\UserServices\UserManageService.cs" />
+    <Compile Include="Services\Implementations\UserServices\UserNotificationsService.cs" />
+    <Compile Include="Services\Interfaces\RedisEmailServices\IRedisEmailGetter.cs" />
+    <Compile Include="Services\Interfaces\UserProductServices\IUserProductService.cs" />
+    <Compile Include="Services\Implementations\UserProductServices\UserProductGetService.cs" />
+    <Compile Include="Services\Implementations\UserProductServices\UserProductAddService.cs" />
+    <Compile Include="Services\Implementations\UserProductServices\UserProductService.cs" />
+    <Compile Include="Services\Interfaces\NotificationDataSevices\IUserProductChangesService.cs" />
+    <Compile Include="Services\Implementations\NotificationDataSevices\UserProductChangesService.cs" />
+    <Compile Include="Services\Interfaces\PriceChangesServices\IPriceChangesService.cs" />
+    <Compile Include="Services\Implementations\PriceChangesServices\PriceChangesService.cs" />
+    <Compile Include="Services\Interfaces\EmailServices\IEmailBuildingService.cs" />
+    <Compile Include="Services\Interfaces\EmailServices\IEmailSender.cs" />
+    <Compile Include="Services\Interfaces\EmailServices\IEmailService.cs" />
+    <Compile Include="Services\Implementations\EmailServices\EmailBuildingService.cs" />
+    <Compile Include="Services\Implementations\EmailServices\EmailModelSender.cs" />
+    <Compile Include="Services\Interfaces\NotificationDataSevices\INotifiableUsersProvider.cs" />
+    <Compile Include="Services\Interfaces\RedisEmailServices\IRedisEmailPublisher.cs" />
+    <Compile Include="Services\Implementations\NotificationDataSevices\NotificationDataService.cs" />
+    <Compile Include="Services\Implementations\RedisEmailService.cs" />
+    <Compile Include="Services\Implementations\TimeCalculationService.cs" />
+    <Compile Include="Services\Implementations\OnlinerSearchService.cs" />
+    <Compile Include="Services\Implementations\UserProductServices\UserProductRemoveService.cs" />
+    <Compile Include="Services\Implementations\TrackingService.cs" />
+    <Compile Include="Services\Interfaces\NotificationDataSevices\INotificationDataService.cs" />
+    <Compile Include="Services\Interfaces\ITimeCalculationService.cs" />
+    <Compile Include="Services\Interfaces\IOnlinerSearchService.cs" />
+    <Compile Include="Services\Interfaces\PriceChangesServices\IPricesChangesInfoService.cs" />
+    <Compile Include="Services\Interfaces\UserProductServices\IUserProductAddService.cs" />
+    <Compile Include="Services\Interfaces\UserProductServices\IUserProductGetService.cs" />
+    <Compile Include="Services\Interfaces\UserProductServices\IUserProductRemoveService.cs" />
+    <Compile Include="Services\Interfaces\ITrackingService.cs" />
+    <Compile Include="Services\Interfaces\UserServices\IUserManageService.cs" />
+    <Compile Include="Services\Interfaces\UserServices\IUserNotificationsService.cs" />
+    <Compile Include="Services\Interfaces\UserServices\IUserDataService.cs" />
+    <Compile Include="Services\Implementations\UserServices\UserDataService.cs" />
+    <Compile Include="Services\Implementations\PriceChangesServices\PriceChangesInfoService.cs" />
+    <Compile Include="Templates\Builders\IPriceChangesEmailBuilder.cs" />
+    <Compile Include="Templates\Builders\RazorPriceChangesEmailBuilder.cs" />
+    <Compile Include="Templates\TemplatePathProvider\ITemplatePathProvider.cs" />
+    <Compile Include="Templates\TemplatePathProvider\TemplatePathProvider.cs" />
+    <Compile Include="Validators\EmailValidator.cs" />
+    <Compile Include="SmtpClients\ISmtpClient.cs" />
+    <Compile Include="SmtpClients\SmtpClientWrapper.cs" />
+    <Compile Include="Validators\IEmailValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OnlinerNotifier.DAL\OnlinerNotifier.DAL.csproj">
+      <Project>{4C2D2887-D490-47F9-B0DB-8AB601DF217E}</Project>
+      <Name>OnlinerNotifier.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Templates\EmailTemplate.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

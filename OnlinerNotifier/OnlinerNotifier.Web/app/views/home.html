@@ -1,0 +1,58 @@
+﻿<div ng-include="'app/views/navbar.html'"></div>
+
+<div class="container body-content">
+    <div class="row indent">
+        <div class="col-md-12">
+            <div class="search">
+                <i class="fa fa-search"></i>
+                <input class="search-input" ng-change="search()" ng-model-options="{ debounce: 300 }" ng-model="searchQuery" placeholder="Enter a product name">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" ng-switch="products == null">
+            <table class="product-table" ng-switch-when="false">
+                <thead>
+                <tr>
+                    <th>
+                    <th>
+                    <th class="price">Lowest price
+                    <th class="price">Highest price
+                </tr>
+                </thead>
+                <tbody infinite-scroll="more()">
+                    <tr  class="indent" ng-repeat="n in products track by $index" ng-class="{'tracked' : trackedIds.indexOf(n.id) > -1}">
+                        <td>
+                            <div class="product-image">
+                                <span class="placer"></span>
+                                <img ng-src={{n.images.header}} ng-show="n.images.header">
+                            </div>
+                        </td>
+                        <td>
+                            <a ng-href={{n.html_url}}>{{n.full_name}}</a>
+                        </td>
+                        <td class="price">
+                            <span>{{n.prices.min | currencyFilter:currentRate}}</span>
+                        </td>
+                        <td class="price">
+                            <span>{{n.prices.max | currencyFilter:currentRate}}</span>
+                        </td>
+                        <td class="icon-box" ng-switch="trackedIds.indexOf(n.id) > -1">
+                            <a class="add-plus" ng-switch-when="false" ng-click="addProduct(n.id)"><i class="fa fa-plus-square" aria-hidden="true"></i></a>
+                            <a class="remove-cross" ng-switch-when="true" ng-click="delProduct(n.id)"><i class="fa fa-times" aria-hidden="true"></i></a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <div ng-switch-when="true">
+                <div class="row">
+                    <div class="col-md-12 text-lg-center">
+                        <span class="table-placeholder">Nothing to show.</span>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+</div>
+

@@ -1,0 +1,36 @@
+﻿@using System.Web.Optimization
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html ng-app="onlinerNotifier">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <base href="/">
+    @Styles.Render("~/Content/bootstrap")
+    @Styles.Render("~/Content/font-awesome")
+    @Styles.Render("~/Content/toastr")
+    @Styles.Render("~/Content/site")
+    <title>OnlinerNotifier</title>
+</head>
+<body>
+    <div ng-view>
+    </div>
+
+    <script>var notificationModule = '@ToastNotificationsConfig.Setup.NotificationsModuleName'</script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/ng-infinite-scroll")
+    @Scripts.Render("~/bundles/toastr")
+    @Scripts.Render("~/bundles/app")
+
+
+    @Scripts.Render(@ToastNotificationsConfig.Setup.NotificationsBundleName);
+    <script src="~/signalr/hubs"></script>
+
+</body>
+</html>

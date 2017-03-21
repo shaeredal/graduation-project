@@ -1,0 +1,78 @@
+﻿body {
+    padding-top: 80px; 
+}
+
+a {
+    cursor: pointer;
+}
+
+.indent {
+    margin-bottom: 10px;
+}
+
+.product-table {
+    width: 100%;
+    font-size: 16px;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.product-table tr {
+    width: 100px;
+    max-width: 100px;
+}
+
+.product-table td {
+    padding: 2px 10px;
+}
+
+.product-image {
+    max-height: 100px;
+    min-height: 100px;
+    max-width: 100px;
+    height: 100px;
+    text-align: center;
+}
+
+.product-image img{
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.tracked {
+    background: lightgreen;
+}
+
+.remove-cross {
+    color: red;
+}
+
+.remove-cross:hover {
+    color: darkred;
+}
+
+.add-plus {
+    color: green;
+}
+
+.add-plus:hover {
+    color: darkgreen;
+}
+
+.icon-box {
+    width: 64px;
+    text-align: center;
+}
+
+.icon-box .fa {
+    font-size: 24px;
+}
+
+.price {
+    text-align: right;
+}
+
+.table-placeholder {
+    font-size: 48px;
+    color: lightgray;
+}

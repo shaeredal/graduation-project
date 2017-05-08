@@ -12,10 +12,14 @@
                 <td>
                     @foreach (var change in product.Changes)
                     {
+                        string oldMin = change.OldMinPrice.HasValue ? change.OldMinPrice.Value.ToString() : "no offers";
+                        string oldMax = change.OldMaxPrice.HasValue ? change.OldMaxPrice.Value.ToString() : "no offers";
+                        string newMin = change.NewMinPrice.HasValue ? change.NewMinPrice.Value.ToString() : "no offers";
+                        string newMax = change.NewMaxPrice.HasValue ? change.NewMaxPrice.Value.ToString() : "no offers";
                         <p>Old prices:</p>
-                        <p>@change.OldMinPrice - @change.OldMaxPrice</p>
+                        <p>@oldMin - @oldMax</p>
                         <p>New prices:</p>
-                        <p>@change.NewMinPrice - @change.NewMaxPrice</p>
+                        <p>@newMin - @newMax</p>
                     }
                 </td>
             </tr>

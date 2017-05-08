@@ -109,6 +109,7 @@ namespace OnlinerNotifier
             builder.RegisterType<UserProductService>().As<IUserProductService>().InstancePerDependency();
             builder.RegisterType<OnlinerSearchService>().As<IOnlinerSearchService>().InstancePerDependency();
             builder.RegisterType<KupiTutBySearchService>().As<IKupiTutBySearchService>().InstancePerDependency();
+            builder.RegisterType<OneKSearchService>().As<IOneKSearchService>().InstancePerDependency();
             builder.RegisterType<PricesChangesInfoService>().As<IPricesChangesInfoService>().InstancePerDependency();
             builder.RegisterType<PriceChangesService>().As<IPriceChangesService>().InstancePerDependency();
             builder.RegisterType<NotificationDataDataService>().As<INotificationDataService>().InstancePerDependency();

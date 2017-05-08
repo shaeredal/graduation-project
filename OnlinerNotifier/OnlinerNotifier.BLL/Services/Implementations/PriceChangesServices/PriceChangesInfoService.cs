@@ -11,16 +11,19 @@ namespace OnlinerNotifier.BLL.Services.Implementations.PriceChangesServices
         private readonly IUnitOfWork unitOfWork;
         private readonly IOnlinerSearchService onlinerSearchService;
         private readonly IKupiTutBySearchService kupiTutBySearchService;
+        private readonly IOneKSearchService oneKSearchService;
         private readonly IPriceChangesService priceChangesService;
 
         public PricesChangesInfoService(IUnitOfWork unitOfWork, 
             IOnlinerSearchService onlinerSearchService,
             IKupiTutBySearchService kupiTutBySearchService, 
+            IOneKSearchService oneKSearchService,
             IPriceChangesService priceChangesService)
         {
             this.unitOfWork = unitOfWork;
             this.onlinerSearchService = onlinerSearchService;
             this.kupiTutBySearchService = kupiTutBySearchService;
+            this.oneKSearchService = oneKSearchService;
             this.priceChangesService = priceChangesService;
         }
 
@@ -47,6 +50,9 @@ namespace OnlinerNotifier.BLL.Services.Implementations.PriceChangesServices
                     break;
                 case "kupi.tut.by":
                     searchResult = kupiTutBySearchService.Search(name);
+                    break;
+                case "1k.by":
+                    searchResult = oneKSearchService.Search(name);
                     break;
                 default:
                     return null;

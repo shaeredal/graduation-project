@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CsQuery, Version=1.3.3.249, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsQuery.1.3.4\lib\net40\CsQuery.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -95,6 +99,7 @@
     <Compile Include="Models\NotificationModels\NotificationParametersModel.cs" />
     <Compile Include="Models\NotificationModels\NotificationProductChangesModel.cs" />
     <Compile Include="Models\SearchDataModels\KupiTutByProduct.cs" />
+    <Compile Include="Models\SearchDataModels\OneKProduct.cs" />
     <Compile Include="Models\SearchDataModels\SearchPrice.cs" />
     <Compile Include="Models\SearchDataModels\SearchProduct.cs" />
     <Compile Include="Models\SearchDataModels\SearchResult.cs" />
@@ -106,6 +111,7 @@
     <Compile Include="Redis\RedisConnector.cs" />
     <Compile Include="Services\Implementations\NotificationDataSevices\NotifiableUsersService.cs" />
     <Compile Include="Services\Implementations\SearchServices\KupiTutBySearchService.cs" />
+    <Compile Include="Services\Implementations\SearchServices\OneKSearchService.cs" />
     <Compile Include="Services\Implementations\UserServices\UserManageService.cs" />
     <Compile Include="Services\Implementations\UserServices\UserNotificationsService.cs" />
     <Compile Include="Services\Interfaces\RedisEmailServices\IRedisEmailGetter.cs" />

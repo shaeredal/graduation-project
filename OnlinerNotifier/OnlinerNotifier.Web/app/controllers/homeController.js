@@ -71,6 +71,28 @@ home.controller('homeController', function ($scope, $http, $cookies, $location, 
                 }
                 $scope.products = $scope.products.concat(result);
             });
+
+            $http.get('api/OneK?name=' + $scope.searchQuery)
+                .then(function (response) {
+                    var result = [];
+                    console.log(response.data.Products)
+                    for (var product of response.data.Products) {
+                        result.push(
+                            {
+                                images: { header: product.PhotoUrl },
+                                html_url: product.Url,
+                                full_name: product.full_name,
+                                prices: {
+                                    min: product.Prices.Min,
+                                    max: product.Prices.Max
+                                },
+                                id: product.Id,
+                                catalog_name: "1k.by"
+                            }
+                        );
+                    }
+                    $scope.products = $scope.products.concat(result);
+                });
         }
 
         $scope.more = function () {

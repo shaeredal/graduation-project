@@ -75,6 +75,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mappers\Implementations\EmailMapper.cs" />
+    <Compile Include="Mappers\Implementations\KupiTutByMapper.cs" />
+    <Compile Include="Mappers\Interfaces\IKupiTutByProductMapper.cs" />
     <Compile Include="Mappers\Interfaces\IUserMapper.cs" />
     <Compile Include="Mappers\Interfaces\IUserProductsMapper.cs" />
     <Compile Include="Mappers\Interfaces\IProductMapper.cs" />
@@ -92,9 +94,10 @@
     <Compile Include="Models\NotificationModels\NotificationEmailModel.cs" />
     <Compile Include="Models\NotificationModels\NotificationParametersModel.cs" />
     <Compile Include="Models\NotificationModels\NotificationProductChangesModel.cs" />
-    <Compile Include="Models\OnlinerDataModels\PriceOnliner.cs" />
-    <Compile Include="Models\OnlinerDataModels\ProductOnliner.cs" />
-    <Compile Include="Models\OnlinerDataModels\SearchResultOnliner.cs" />
+    <Compile Include="Models\SearchDataModels\KupiTutByProduct.cs" />
+    <Compile Include="Models\SearchDataModels\SearchPrice.cs" />
+    <Compile Include="Models\SearchDataModels\SearchProduct.cs" />
+    <Compile Include="Models\SearchDataModels\SearchResult.cs" />
     <Compile Include="Models\TrackingModels\TrackingModel.cs" />
     <Compile Include="Models\UserProductViewModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
@@ -102,9 +105,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Redis\RedisConnector.cs" />
     <Compile Include="Services\Implementations\NotificationDataSevices\NotifiableUsersService.cs" />
+    <Compile Include="Services\Implementations\SearchServices\KupiTutBySearchService.cs" />
     <Compile Include="Services\Implementations\UserServices\UserManageService.cs" />
     <Compile Include="Services\Implementations\UserServices\UserNotificationsService.cs" />
     <Compile Include="Services\Interfaces\RedisEmailServices\IRedisEmailGetter.cs" />
+    <Compile Include="Services\Interfaces\SearchServices\IKupiTutBySearchService.cs" />
+    <Compile Include="Services\Interfaces\SearchServices\IOneKSearchService.cs" />
+    <Compile Include="Services\Interfaces\SearchServices\ISearchService.cs" />
     <Compile Include="Services\Interfaces\UserProductServices\IUserProductService.cs" />
     <Compile Include="Services\Implementations\UserProductServices\UserProductGetService.cs" />
     <Compile Include="Services\Implementations\UserProductServices\UserProductAddService.cs" />
@@ -123,12 +130,12 @@
     <Compile Include="Services\Implementations\NotificationDataSevices\NotificationDataService.cs" />
     <Compile Include="Services\Implementations\RedisEmailService.cs" />
     <Compile Include="Services\Implementations\TimeCalculationService.cs" />
-    <Compile Include="Services\Implementations\OnlinerSearchService.cs" />
+    <Compile Include="Services\Implementations\SearchServices\OnlinerSearchService.cs" />
     <Compile Include="Services\Implementations\UserProductServices\UserProductRemoveService.cs" />
     <Compile Include="Services\Implementations\TrackingService.cs" />
     <Compile Include="Services\Interfaces\NotificationDataSevices\INotificationDataService.cs" />
     <Compile Include="Services\Interfaces\ITimeCalculationService.cs" />
-    <Compile Include="Services\Interfaces\IOnlinerSearchService.cs" />
+    <Compile Include="Services\Interfaces\SearchServices\IOnlinerSearchService.cs" />
     <Compile Include="Services\Interfaces\PriceChangesServices\IPricesChangesInfoService.cs" />
     <Compile Include="Services\Interfaces\UserProductServices\IUserProductAddService.cs" />
     <Compile Include="Services\Interfaces\UserProductServices\IUserProductGetService.cs" />

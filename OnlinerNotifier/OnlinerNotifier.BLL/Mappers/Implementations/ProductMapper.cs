@@ -10,7 +10,8 @@ namespace OnlinerNotifier.BLL.Mappers.Implementations
         {
             return new Product()
             {
-                OnlinerId = model.OnlinerId,
+                CatalogId = model.OnlinerId,
+                CatalogName = model.CatalogName,
                 Name = model.Name,
                 MaxPrice = model.MaxPrice,
                 MinPrice = model.MinPrice,
@@ -24,7 +25,8 @@ namespace OnlinerNotifier.BLL.Mappers.Implementations
             return new ProductViewModel()
             {
                 Id = product.Id,
-                OnlinerId = product.OnlinerId,
+                OnlinerId = product.CatalogId,
+                CatalogName = product.CatalogName,
                 Name = product.Name,
                 MaxPrice = product.MaxPrice,
                 MinPrice = product.MinPrice,

@@ -1,5 +1,5 @@
 ﻿using OnlinerNotifier.BLL.Mappers.Interfaces;
-using OnlinerNotifier.BLL.Models.OnlinerDataModels;
+using OnlinerNotifier.BLL.Models.SearchDataModels;
 using OnlinerNotifier.BLL.Services.Interfaces.PriceChangesServices;
 using OnlinerNotifier.DAL;
 using OnlinerNotifier.DAL.Models;
@@ -18,12 +18,12 @@ namespace OnlinerNotifier.BLL.Services.Implementations.PriceChangesServices
             this.priceChangesMapper = priceChangesMapper;
         }
 
-        public void CompareAndUpdate(int productId, PriceOnliner newPrice)
+        public void CompareAndUpdate(int productId, SearchPrice newPrice)
         {
             var product = unitOfWork.Products.Get(productId);
             if (newPrice == null)
             {
-                newPrice = new PriceOnliner() {Max = 0, Min = 0};
+                newPrice = new SearchPrice() {Max = 0, Min = 0};
             }
             if (IsPriceChanged(product, newPrice))
             {
@@ -32,7 +32,7 @@ namespace OnlinerNotifier.BLL.Services.Implementations.PriceChangesServices
             }
         }
 
-        private bool IsPriceChanged(Product product, PriceOnliner newPrice)
+        private bool IsPriceChanged(Product product, SearchPrice newPrice)
         {
             if (newPrice == null)
             {
@@ -41,14 +41,14 @@ namespace OnlinerNotifier.BLL.Services.Implementations.PriceChangesServices
             return newPrice.Min != product.MinPrice || newPrice.Max != product.MaxPrice;
         }
 
-        private void AddPriceChange(Product product, PriceOnliner newPrice)
+        private void AddPriceChange(Product product, SearchPrice newPrice)
         {
             var priceChanges = priceChangesMapper.ToDomain(product, newPrice);
             unitOfWork.PriceCanges.Create(priceChanges);
             unitOfWork.Save();
         }
 
-        private void UpdatePrice(Product product, PriceOnliner newPrice)
+        private void UpdatePrice(Product product, SearchPrice newPrice)
         {
             product.MaxPrice = newPrice.Max;
             product.MinPrice = newPrice.Min;

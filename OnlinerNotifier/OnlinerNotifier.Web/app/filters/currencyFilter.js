@@ -3,7 +3,7 @@
 });
 
 var filterFunc = function(x, currentRate) {
-    if (isNaN(x) || x == 0) {
+    if (isNaN(x) || x == 0 || x == null) {
         return "no offers";
     }
     return (x / currentRate).toFixed(2);

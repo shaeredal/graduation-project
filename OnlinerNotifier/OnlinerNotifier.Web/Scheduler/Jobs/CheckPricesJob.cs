@@ -10,13 +10,13 @@ namespace OnlinerNotifier.Scheduler.Jobs
 
         private bool shuttingDown;
 
-        private readonly IPricesChangesInfoService _pricesChangesObserverService;
+        private readonly IPricesChangesInfoService pricesChangesObserverService;
 
-        public CheckPricesJob(IPricesChangesInfoService _pricesChangesObserverService)
+        public CheckPricesJob(IPricesChangesInfoService pricesChangesObserverService)
         {
             HostingEnvironment.RegisterObject(this);
 
-            this._pricesChangesObserverService = _pricesChangesObserverService;
+            this.pricesChangesObserverService = pricesChangesObserverService;
         }
 
         public void Execute()
@@ -26,7 +26,7 @@ namespace OnlinerNotifier.Scheduler.Jobs
                 if (shuttingDown)
                     return;
 
-                _pricesChangesObserverService.Update();
+                pricesChangesObserverService.Update();
             }
         }
 

@@ -1,14 +1,15 @@
 ﻿using System.IO;
 using System.Net;
 using Newtonsoft.Json;
-using OnlinerNotifier.BLL.Models.OnlinerDataModels;
-using OnlinerNotifier.BLL.Services.Interfaces;
+using OAuth2.Infrastructure;
+using OnlinerNotifier.BLL.Models.SearchDataModels;
+using OnlinerNotifier.BLL.Services.Interfaces.SearchServices;
 
-namespace OnlinerNotifier.BLL.Services.Implementations
+namespace OnlinerNotifier.BLL.Services.Implementations.SearchServices
 {
     public class OnlinerSearchService : IOnlinerSearchService
     {
-        public SearchResultOnliner Search(string productName)
+        public SearchResult Search(string productName)
         {
             var searchResultString = MakeRequest(productName);
             return ParseResponse(searchResultString);
@@ -36,9 +37,11 @@ namespace OnlinerNotifier.BLL.Services.Implementations
             return null;
         }
 
-        private SearchResultOnliner ParseResponse(string searchResultString)
+        private SearchResult ParseResponse(string searchResultString)
         {
-            return JsonConvert.DeserializeObject<SearchResultOnliner>(searchResultString);
+            var result = JsonConvert.DeserializeObject<SearchResult>(searchResultString);
+            result.Products.ForEach(x => x.CatalogName = "onliner.by");
+            return result;
         }
     }
 }

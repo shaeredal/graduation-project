@@ -13,6 +13,7 @@ account.controller('accountController',
                 }
                 $scope.avatarUri = user.AvatarUri;
                 $scope.userProducts = user.UserProducts;
+                    console.log(user.UserProducts);
                 $scope.email = user.Email;
                 $scope.enableNotifications = user.EnableNotifications;
                 },

@@ -31,7 +31,7 @@ namespace OnlinerNotifier.BLL_Tests.Services
         [Test]
         public void Check_Checking_ChecksProducts()
         {
-            var testProduct = unitOfWorkMock.Object.Products.GetAll().FirstOrDefault(p => p.OnlinerId == 12345);
+            var testProduct = unitOfWorkMock.Object.Products.GetAll().FirstOrDefault(p => p.CatalogId == 12345);
 
             pricesChangesObserverService.Update();
 

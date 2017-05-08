@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Net.Mail;
 using Moq;
-using OnlinerNotifier.BLL.Models.OnlinerDataModels;
+using OnlinerNotifier.BLL.Models.SearchDataModels;
 using OnlinerNotifier.BLL.Services.Interfaces;
+using OnlinerNotifier.BLL.Services.Interfaces.SearchServices;
 using OnlinerNotifier.BLL.SmtpClients;
 using OnlinerNotifier.DAL;
 using OnlinerNotifier.DAL.Models;
@@ -118,9 +119,9 @@ namespace OnlinerNotifier.BLL_Tests.Moq
         private List<Product> GenerateProductList()
         {
             var productList = new List<Product>();
-            productList.Add(new Product() { Id = 100, OnlinerId = 12345});
-            productList.Add(new Product() { Id = 200, OnlinerId = 33});
-            productList.Add(new Product() { Id = 300, OnlinerId = 1122 });
+            productList.Add(new Product() { Id = 100, CatalogId = 12345});
+            productList.Add(new Product() { Id = 200, CatalogId = 33});
+            productList.Add(new Product() { Id = 300, CatalogId = 1122 });
             return productList;
         }
 
@@ -131,30 +132,30 @@ namespace OnlinerNotifier.BLL_Tests.Moq
             OnlinerSearchServiceMock.Setup(m => m.Search(It.IsAny<string>())).Returns(() => searchResult);
         }
 
-        private SearchResultOnliner GenerateSearcResult()
+        private SearchResult GenerateSearcResult()
         {
-            var productList = new List<ProductOnliner>();
-            productList.Add(new ProductOnliner()
+            var productList = new List<SearchProduct>();
+            productList.Add(new SearchProduct()
             {
                 FullName = "TestProduct1",
                 Id = 12345,
-                Prices = new PriceOnliner()
+                Prices = new SearchPrice()
                 {
                     Max = 70000,
                     Min = 50000
                 }
             });
-            productList.Add(new ProductOnliner()
+            productList.Add(new SearchProduct()
             {
                 FullName = "TestProduct2",
                 Id = 12,
-                Prices = new PriceOnliner()
+                Prices = new SearchPrice()
                 {
                     Max = 80000,
                     Min = 40000
                 }
             });
-            var searchResult = new SearchResultOnliner()
+            var searchResult = new SearchResult()
             {
                 Products = productList
             };

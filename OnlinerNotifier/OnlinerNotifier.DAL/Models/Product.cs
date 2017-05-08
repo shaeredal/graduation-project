@@ -6,7 +6,9 @@ namespace OnlinerNotifier.DAL.Models
     {
         public int Id { get; set; }
 
-        public int OnlinerId { get; set; }
+        public int CatalogId { get; set; }
+
+        public string CatalogName { get; set; }
 
         public string Name { get; set; }
 
@@ -14,9 +16,9 @@ namespace OnlinerNotifier.DAL.Models
 
         public string Url { get; set; }
 
-        public decimal MaxPrice { get; set; }
+        public decimal? MaxPrice { get; set; }
 
-        public decimal MinPrice { get; set; }
+        public decimal? MinPrice { get; set; }
 
         public ICollection<UserProduct> UserProducts { get; set; }
 

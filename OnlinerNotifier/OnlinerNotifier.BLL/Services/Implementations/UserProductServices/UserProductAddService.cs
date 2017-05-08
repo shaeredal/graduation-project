@@ -30,7 +30,7 @@ namespace OnlinerNotifier.BLL.Services.Implementations.UserProductServices
 
         private Product GetProduct(ProductViewModel productModel)
         {
-            var product = unitOfWork.Products.GetAll().FirstOrDefault(prod => prod.OnlinerId == productModel.OnlinerId);
+            var product = unitOfWork.Products.GetAll().FirstOrDefault(prod => prod.CatalogId == productModel.OnlinerId);
             return product;
         }
 

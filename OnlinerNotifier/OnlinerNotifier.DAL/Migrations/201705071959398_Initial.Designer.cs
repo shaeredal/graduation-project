@@ -2,6 +2,7 @@
 namespace OnlinerNotifier.DAL.Migrations
 {
     using System.CodeDom.Compiler;
+    using System.Data.Entity.Migrations;
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
@@ -12,7 +13,7 @@ namespace OnlinerNotifier.DAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201606200938439_Initial"; }
+            get { return "201705071959398_Initial"; }
         }
         
         string IMigrationMetadata.Source

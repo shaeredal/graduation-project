@@ -36,8 +36,10 @@
                     <tr>
                         <th>
                         <th>Tracking products
+                        <th> Catalog Name
                         <th class="price">Lowest price
                         <th class="price">Highest price
+                        <th>
                     </tr>
                 </thead>
                 <tbody infinite-scroll="more()">
@@ -49,7 +51,10 @@
                             </div>
                         </td>
                         <td>
-                            <a ng-href={{n.Product.Url}}>{{n.Product.Name}}</a>
+                            <a ng-href={{n.Product.Url}} target="_blank">{{n.Product.Name}}</a>
+                        </td>
+                        <td>
+                            <span>{{n.Product.CatalogName}}</span>
                         </td>
                         <td>
                             <span>{{n.Product.MinPrice | currencyFilter:currentRate}}</span>

@@ -11,6 +11,7 @@ using OnlinerNotifier.BLL.Mappers.Interfaces;
 using OnlinerNotifier.BLL.Services.Implementations.EmailServices;
 using OnlinerNotifier.BLL.Services.Implementations.NotificationDataSevices;
 using OnlinerNotifier.BLL.Services.Implementations.PriceChangesServices;
+using OnlinerNotifier.BLL.Services.Implementations.SearchServices;
 using OnlinerNotifier.BLL.Services.Implementations.UserProductServices;
 using OnlinerNotifier.BLL.Services.Implementations.UserServices;
 using OnlinerNotifier.BLL.Services.Interfaces;
@@ -18,6 +19,7 @@ using OnlinerNotifier.BLL.Services.Interfaces.EmailServices;
 using OnlinerNotifier.BLL.Services.Interfaces.NotificationDataSevices;
 using OnlinerNotifier.BLL.Services.Interfaces.PriceChangesServices;
 using OnlinerNotifier.BLL.Services.Interfaces.RedisEmailServices;
+using OnlinerNotifier.BLL.Services.Interfaces.SearchServices;
 using OnlinerNotifier.BLL.Services.Interfaces.UserProductServices;
 using OnlinerNotifier.BLL.Services.Interfaces.UserServices;
 using OnlinerNotifier.BLL.SmtpClients;
@@ -106,6 +108,7 @@ namespace OnlinerNotifier
             builder.RegisterType<UserProductRemoveService>().As<IUserProductRemoveService>().InstancePerDependency();
             builder.RegisterType<UserProductService>().As<IUserProductService>().InstancePerDependency();
             builder.RegisterType<OnlinerSearchService>().As<IOnlinerSearchService>().InstancePerDependency();
+            builder.RegisterType<KupiTutBySearchService>().As<IKupiTutBySearchService>().InstancePerDependency();
             builder.RegisterType<PricesChangesInfoService>().As<IPricesChangesInfoService>().InstancePerDependency();
             builder.RegisterType<PriceChangesService>().As<IPriceChangesService>().InstancePerDependency();
             builder.RegisterType<NotificationDataDataService>().As<INotificationDataService>().InstancePerDependency();
@@ -129,6 +132,7 @@ namespace OnlinerNotifier
                 .As<INotificationProductChangesModelMapper>().SingleInstance();
             builder.RegisterType<NotificationDataModelMapper>()
                 .As<INotificationDataModelMapper>().SingleInstance();
+            builder.RegisterType<KupiTutByMapper>().As<IKupiTutByProductMapper>().SingleInstance();
         }
 
         private static void RegisterJobs(ContainerBuilder builder)

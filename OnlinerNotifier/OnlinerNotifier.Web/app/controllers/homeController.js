@@ -39,11 +39,38 @@ home.controller('homeController', function ($scope, $http, $cookies, $location, 
                 $scope.products = null;
                 return;
             }
+            $scope.products = [];
+
             $http.get('https://catalog.api.onliner.by/search/products?query=' + $scope.searchQuery)
-                .then(function(response) {
-                    $scope.products = response.data.products;
+                .then(function (response) {
+                    for (var product of response.data.products) {
+                        product.catalog_name = "onliner.by";
+                    }
+                    $scope.products = $scope.products.concat(response.data.products);
                     $scope.lastPage = response.data.page.current;
                 });
+
+            $http.get('api/KupiTutBy?name=' + $scope.searchQuery)
+            .then(function (response) {
+                var result = [];
+                console.log(response.data.Products)
+                for (var product of response.data.Products) {
+                    result.push(
+                        {
+                            images: { header: product.PhotoUrl },
+                            html_url: product.Url,
+                            full_name: product.full_name,
+                            prices: {
+                                min: product.Prices.Min,
+                                max: product.Prices.Max
+                            },
+                            id: product.Id,
+                            catalog_name: "kupi.tut.by"
+                        }
+                    );
+                }
+                $scope.products = $scope.products.concat(result);
+            });
         }
 
         $scope.more = function () {
@@ -57,6 +84,9 @@ home.controller('homeController', function ($scope, $http, $cookies, $location, 
                     "&page=" +
                     $scope.lastPage)
                 .then(function (response) {
+                    for (var product of response.data.products) {
+                        product.catalog_name = "onliner.by";
+                    }
                     $scope.products = $scope.products.concat(response.data.products);
                 });
         }
@@ -74,6 +104,7 @@ home.controller('homeController', function ($scope, $http, $cookies, $location, 
             var product = productMatch[0];
             var productData = {
                 "OnlinerId": product.id,
+                "CatalogName": product.catalog_name,
                 "Name": product.full_name,
                 "Image": product.images.header,
                 "Url": product.html_url

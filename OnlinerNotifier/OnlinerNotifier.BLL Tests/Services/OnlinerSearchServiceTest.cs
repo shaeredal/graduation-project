@@ -1,7 +1,9 @@
 ﻿using System.Linq;
 using NUnit.Framework;
 using OnlinerNotifier.BLL.Services.Implementations;
+using OnlinerNotifier.BLL.Services.Implementations.SearchServices;
 using OnlinerNotifier.BLL.Services.Interfaces;
+using OnlinerNotifier.BLL.Services.Interfaces.SearchServices;
 
 namespace OnlinerNotifier.BLL_Tests.Services
 {
